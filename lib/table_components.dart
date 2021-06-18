@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-class HeadingRow extends StatelessWidget {
-  const HeadingRow(
+//Heading for first table
+class HeadingRowFirst extends StatelessWidget {
+  const HeadingRowFirst(
       {required this.heading1, required this.heading2, required this.heading3});
 
   final String heading1;
@@ -11,6 +12,10 @@ class HeadingRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(4.0),
+        color: Colors.white10,
+      ),
       padding: EdgeInsets.only(left: 10.0, right: 10.0),
       height: 35.0,
       child: Row(
@@ -19,22 +24,22 @@ class HeadingRow extends StatelessWidget {
           Text(
             heading1,
             style: TextStyle(
-              fontSize: 16.0,
-              color: Colors.white,
+              fontSize: 13.0,
+              color: Color(0xff999999),
             ),
           ),
           Text(
             heading2,
             style: TextStyle(
-              fontSize: 16.0,
-              color: Colors.white,
+              fontSize: 13.0,
+              color: Color(0xff999999),
             ),
           ),
           Text(
             heading3,
             style: TextStyle(
-              fontSize: 16.0,
-              color: Colors.white,
+              fontSize: 13.0,
+              color: Color(0xff999999),
             ),
           ),
         ],
@@ -43,6 +48,58 @@ class HeadingRow extends StatelessWidget {
   }
 }
 
+//Heading for second table
+class HeadingRowSecond extends StatelessWidget {
+  const HeadingRowSecond(
+      {required this.heading1, required this.heading2, required this.heading3});
+
+  final String heading1;
+  final String heading2;
+  final String heading3;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(4.0),
+        color: Colors.white10,
+      ),
+      padding: EdgeInsets.only(left: 10.0, right: 10.0),
+      height: 35.0,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            heading1,
+            style: TextStyle(
+              fontSize: 13.0,
+              color: Color(0xff999999),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0),
+            child: Text(
+              heading2,
+              style: TextStyle(
+                fontSize: 13.0,
+                color: Color(0xff999999),
+              ),
+            ),
+          ),
+          Text(
+            heading3,
+            style: TextStyle(
+              fontSize: 13.0,
+              color: Color(0xff999999),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+//Element between button and drop-down list
 class HeadComponent extends StatelessWidget {
   const HeadComponent(
       {required this.firstNumber,
@@ -95,21 +152,21 @@ class HeadComponent extends StatelessWidget {
                 'Buy',
                 style: TextStyle(
                   fontSize: 12.0,
-                  color: Colors.white,
+                  color: Colors.white70,
                 ),
               ),
               Text(
                 'Neutral',
                 style: TextStyle(
                   fontSize: 12.0,
-                  color: Colors.white,
+                  color: Color(0xff999999),
                 ),
               ),
               Text(
                 'Sell',
                 style: TextStyle(
                   fontSize: 12.0,
-                  color: Colors.white,
+                  color: Colors.white70,
                 ),
               ),
             ],
@@ -120,14 +177,17 @@ class HeadComponent extends StatelessWidget {
   }
 }
 
+// Data format for first and second table
 class TableText extends StatelessWidget {
   const TableText(
       {required this.color,
+      required this.firstTableColor,
       required this.firstTable,
       required this.secondTable,
       required this.thirdTable});
 
   final Color color;
+  final Color firstTableColor;
   final String firstTable;
   final String secondTable;
   final String thirdTable;
@@ -135,35 +195,35 @@ class TableText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 10.0, right: 10.0),
+      padding: EdgeInsets.only(left: 5.0, right: 5.0),
       height: 35.0,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
+            flex: 9,
             child: Text(
               firstTable,
-              style: TextStyle(fontSize: 16.0, color: Colors.white),
+              style: TextStyle(fontSize: 13.0, color: firstTableColor),
             ),
           ),
-          SizedBox(width: 18.0),
-
+          //SizedBox(width: 6.0),
           Expanded(
+            flex: 5,
             child: Text(
               secondTable,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16.0, color: Colors.white),
+              textAlign: TextAlign.left,
+              style: TextStyle(fontSize: 13.0, color: Colors.white),
             ),
           ),
-
           SizedBox(width: 20.0),
-
           Expanded(
+            flex: 5,
             child: Text(
               thirdTable,
               textAlign: TextAlign.end,
               style: TextStyle(
-                fontSize: 16.0,
+                fontSize: 13.0,
                 color: color,
               ),
             ),
@@ -174,6 +234,7 @@ class TableText extends StatelessWidget {
   }
 }
 
+//Last table data
 class LastTableText extends StatelessWidget {
   const LastTableText({
     required this.firstTable,
@@ -194,14 +255,14 @@ class LastTableText extends StatelessWidget {
           Text(
             firstTable,
             style: TextStyle(
-              fontSize: 16.0,
-              color: Colors.white,
+              fontSize: 13.0,
+              color: Color(0xff999999),
             ),
           ),
           Text(
             secondTable,
             style: TextStyle(
-              fontSize: 16.0,
+              fontSize: 13.0,
               color: Colors.white,
             ),
           ),
